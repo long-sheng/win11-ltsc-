@@ -1,0 +1,9 @@
+使用 PowerShell 安装
+
+以管理员身份运行 PowerShell：
+
+右键点击 开始菜单 > 选择 Windows PowerShell（管理员）。
+
+运行以下命令来重新安装 Microsoft Store：
+
+Get-AppxPackage -AllUsers | Where-Object {$_.Name -like "*WindowsStore*"} | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
